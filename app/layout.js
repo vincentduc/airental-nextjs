@@ -9,11 +9,23 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* Ensure proper mobile scaling and a simple favicon to avoid 404s */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="data:," />
+      </head>
       <body>
+        {/* Accessible skip link for keyboard users */}
+        <a href="#main" className="skip-link" style={{position:'absolute',left:'-10000px',top:'auto',width:'1px',height:'1px',overflow:'hidden'}}>
+          Skip to content
+        </a>
+
         <header className="header">
-          <nav className="nav container">
+          <nav className="nav container" aria-label="Primary">
             <div className="brand">
-              <Link href="/"><strong>airental</strong></Link>
+              <Link href="/" className="brand-link" aria-label="Airental home">
+                <img src="/assets/logo.png" alt="Airental" className="logo" />
+              </Link>
               <span className="badge">Materials from locals</span>
             </div>
             <div className="nav-links">
@@ -21,19 +33,23 @@ export default function RootLayout({ children }) {
               <Link href="/pricing">Pricing</Link>
               <Link href="/pick-up-points">Pick-up points</Link>
               <Link href="/faq">FAQ</Link>
-              <a className="btn" href="https://wa.me/41772619708" target="_blank">Book on WhatsApp</a>
+              <a className="btn" href="https://wa.me/41772619708" target="_blank" rel="noopener noreferrer">Book on WhatsApp</a>
             </div>
           </nav>
         </header>
-        <main className="container">{children}</main>
+
+        <main id="main" className="container">{children}</main>
+
         <footer>
-          <div className="container" style={{display:'flex',justifyContent:'space-between',padding:'16px 24px'}}>
-            <div>&copy; {new Date().getFullYear()} Airental, Zürich</div>
-            <div style={{display:'flex',gap:12}}>
+          <div className="container" style={{display:'flex',justifyContent:'space-between',alignItems:'center',gap:16,padding:'16px 0'}}>
+            <div>© {new Date().getFullYear()} Airental, Zürich</div>
+            <nav aria-label="Footer" style={{display:'flex',gap:12,flexWrap:'wrap'}}>
+              <Link href="/about">About</Link>
+              <Link href="/contact">Contact</Link>
               <Link href="/privacy">Privacy</Link>
               <Link href="/terms">Terms</Link>
               <a href="mailto:support@airental.ch">support@airental.ch</a>
-            </div>
+            </nav>
           </div>
         </footer>
       </body>
