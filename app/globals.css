@@ -1,76 +1,62 @@
+:root{--fg:#0f172a;--muted:#475569;--brand:#2563eb;--bg:#fff;--card:#f8fafc}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial;color:var(--fg);background:var(--bg)}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
 
-:root { --fg:#0f172a; --muted:#475569; --brand:#2563eb; --bg:#ffffff; --card:#f8fafc; }
-*{box-sizing:border-box} body{margin:0;font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial; color:var(--fg); background:var(--bg)}
-a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
-.container{max-width:1100px;margin:0 auto;padding:24px}
-.header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e5e7eb;z-index:50}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px}
+/* Layout */
+.container{max-width:1100px;margin:0 auto;padding:16px}
+.header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid #e5e7eb;z-index:50;box-shadow:0 1px 0 rgba(15,23,42,.04)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;flex-wrap:wrap;gap:8px 12px}
 .brand{display:flex;gap:8px;align-items:center}
-.badge{font-size:12px;background:#e0f2fe;color:#0369a1;padding:2px 8px;border-radius:999px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;border:1px solid #cbd5e1;background:#0ea5e9;color:white;font-weight:600;cursor:pointer}
+
+/* Badges & chips */
+.badge{display:inline-block;padding:4px 8px;border-radius:999px;font-size:12px;background:#eef2ff;color:#3730a3;border:1px solid #e0e7ff}
+.chip{display:inline-block;padding:6px 10px;border-radius:999px;font-size:13px;background:#f3f4f6;color:#111827;border:1px solid #e5e7eb;margin:0 8px 8px 0;cursor:pointer;transition:background .15s ease, transform .05s ease;}
+.chip:hover{background:#e5e7eb}
+.chip:active{transform:scale(.98)}
+/* Chips row container */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+/* Allow horizontal scroll for chips on smaller screens */
+@media (max-width:640px){
+  .chips{flex-wrap:nowrap;overflow:auto;white-space:nowrap;padding-bottom:6px;margin-bottom:4px}
+  .chips .chip{display:inline-block;margin:0 6px 0 0}
+}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;border:1px solid #cbd5e1;background:#0ea5e9;color:#fff;font-weight:600;cursor:pointer;min-height:44px}
 .btn.secondary{background:#fff;color:#0ea5e9}
+
+/* Cards / tiles */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
 .card{background:var(--card);border:1px solid #e5e7eb;border-radius:16px;padding:16px}
+.tile{border:1px solid #e5e7eb;border-radius:12px;background:#fff;padding:14px 16px}
+.kpi{font-weight:800;font-size:18px;margin-bottom:4px}
+.price-pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#f3f4f6;border:1px solid #e5e7eb;font-size:12px}
+
+/* Typography */
 .hero h1{font-size:40px;line-height:1.1;margin:16px 0}
-footer{border-top:1px solid #e5e7eb;background:#fff;margin-top:48px}
+.hero p{max-width:65ch;line-height:1.6}
+
+/* Hero grid */
+.hero-grid { display: grid; gap: 24px; }
+/* Desktop: split hero into two columns */
+@media (min-width: 900px) { .hero-grid { grid-template-columns: 1fr 420px; align-items: start; } }
+
+/* Forms */
 input,select,textarea{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #cbd5e1}
 .label{font-size:12px;color:var(--muted);margin-bottom:6px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media (max-width:640px){.form-row{grid-template-columns:1fr} .hero h1{font-size:32px}}
-/* helpers used by homepage */
 
-.badge {
-  display:inline-block;
-  padding:4px 8px;
-  border-radius:999px;
-  font-size:12px;
-  background:#eef2ff;
-  color:#3730a3;
-  border:1px solid #e0e7ff;
-}
+footer{border-top:1px solid #e5e7eb;background:#fff;margin-top:48px}
 
-.chip {
-  display:inline-block;
-  padding:6px 10px;
-  border-radius:999px;
-  font-size:13px;
-  background:#f3f4f6;
-  color:#111827;
-  border:1px solid #e5e7eb;
-}
-
-.btn {
-  display:inline-block;
-  padding:10px 14px;
-  border-radius:10px;
-  background:#1482ff;
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;
-}
-.btn.secondary {
-  background:#f3f4f6;
-  color:#111827;
-  border:1px solid #e5e7eb;
-}
-
-.tile {
-  border:1px solid #e5e7eb;
-  border-radius:12px;
-  background:#fff;
-  padding:14px 16px;
-}
-.kpi {
-  font-weight:800;
-  font-size:18px;
-  margin-bottom:4px;
-}
-
-.price-pill {
-  display:inline-block;
-  padding:6px 10px;
-  border-radius:999px;
-  background:#f3f4f6;
-  border:1px solid #e5e7eb;
-  font-size:12px;
+/* ---------------- Mobile tweaks ---------------- */
+@media (max-width:640px){
+  .container{padding:16px}
+  .nav{padding:12px 16px}
+  .hero h1{font-size:28px}
+  .btn{width:100%;justify-content:center}
+  .nav a { font-size: 16px; padding: 8px 4px; }
+  .hero p { font-size: 16px; line-height: 1.4; padding: 0 8px; }
 }
