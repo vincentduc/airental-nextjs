@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
           <nav className="nav container" aria-label="Primary">
             <div className="brand">
               <Link href="/" className="brand-link" aria-label="Airental home">
-                <img src="/assets/logo.png" alt="Airental" className="logo" />
+                <img src="/images/logo.png" alt="Airental" className="logo" />
               </Link>
               <span className="badge">Materials from locals</span>
             </div>

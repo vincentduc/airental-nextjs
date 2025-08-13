@@ -2,93 +2,42 @@ import Link from 'next/link';
 import { categories } from '../data/equipment';
 
 export default function Page() {
-  const chips = ['Bikes', 'Skis', 'Paddle', 'Golf clubs', 'Cameras', 'SUP'];
-
   return (
     <>
       {/* Top chips row */}
       <div className="container" aria-label="Categories">
-        {/* scroller makes the row horizontally scrollable on mobile */}
-        <div
-          className="chips scroller"
-          style={{
-            display: 'flex',
-            gap: 12,
-            padding: '12px 0',
-            borderBottom: '1px solid #eee',
-            overflowX: 'auto',
-            WebkitOverflowScrolling: 'touch'
-          }}
-        >
-          {chips.map((t) => (
-            <span key={t} className="chip">{t}</span>
-          ))}
+        <div className="chips">
+          <a className="chip" href="/category?type=bikes">Bikes</a>
+          <a className="chip" href="/category?type=skis">Skis</a>
+          <a className="chip" href="/category?type=paddle">Paddle</a>
+          <a className="chip" href="/category?type=golf-clubs">Golf clubs</a>
+          <a className="chip" href="/category?type=cameras">Cameras</a>
+          <a className="chip" href="/category?type=sup">SUP</a>
         </div>
       </div>
 
       {/* HERO */}
       <section className="hero">
-        <div className="container">
-          <span className="badge">Sports &amp; gear rentals in Zurich</span>
-
-          <h1>
-            Rent bikes, skis, clubs &amp; more in Zurich.<br />
-            Book in 30 seconds.
-          </h1>
-
-          <p>
-            Pick your gear, start time, and pickup point. Simple payment, 7/7 support,
-            and the right accessories included where relevant.
-          </p>
-
-          {/* On mobile this stacks naturally; on wide screens CSS can make it 2-cols */}
-          <div className="hero-grid" style={{ display: 'grid', gap: 20 }}>
-            {/* CTAs */}
-            <div className="actions" style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-              <a className="btn" href="https://wa.me/41772619708" target="_blank" rel="noopener noreferrer">
-                Book now
-              </a>
-              <Link className="btn secondary" href="/how-it-works">
-                See how it works
-              </Link>
-            </div>
-
-            {/* What's included box */}
-            <aside
-              className="included"
-              style={{
-                border: '1px solid #e5e7eb',
-                borderRadius: 12,
-                padding: '16px 18px',
-                background: '#fff',
-                boxShadow: '0 1px 0 rgba(0,0,0,.02)'
-              }}
-            >
-              <h4 style={{ margin: '0 0 8px' }}>What’s included</h4>
-              <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.75 }}>
-                <li>Accessories when relevant (e.g., helmet, lock, lights)</li>
-                <li>Maintained, safety-checked gear</li>
-                <li>QR code to pick up your gear</li>
-                <li>On-city assistance if needed</li>
-              </ul>
-            </aside>
-          </div>
-
-          {/* KPI tiles under hero */}
-          <div className="grid" style={{ marginTop: 24 }}>
-            <div className="tile">
-              <div className="kpi">10+</div>
-              <div>central pickup points</div>
-            </div>
-            <div className="tile">
-              <div className="kpi">24/7</div>
-              <div>help &amp; assistance</div>
-            </div>
-            <div className="tile">
-              <div className="kpi">Insurance</div>
-              <div>available (damage &amp; theft*)</div>
-            </div>
-          </div>
+        <span className="section-eyebrow">Sports & gear rentals in Zurich</span>
+        <h1>Rent bikes, skis, clubs & more in Zurich.<br/>Book in 30 seconds.</h1>
+        <p>Pick your gear, start time, and pickup point. Simple payment, 7/7 support, and the right accessories included where relevant.</p>
+        <div className="actions">
+          <a className="btn" href="https://wa.me/41772619708" target="_blank">Book now</a>
+          <a className="btn secondary" href="#how">See how it works</a>
+        </div>
+        <aside className="included">
+          <h4>What’s included</h4>
+          <ul>
+            <li>Accessories when relevant (e.g., helmet, lock, lights)</li>
+            <li>Maintained, safety-checked gear</li>
+            <li>QR code to pick up your gear</li>
+            <li>On-city assistance if needed</li>
+          </ul>
+        </aside>
+        <div className="kpis">
+          <div><div className="kpi">10+</div><div>central pickup points</div></div>
+          <div><div className="kpi">24/7</div><div>help & assistance</div></div>
+          <div><div className="kpi">Insurance</div><div>available (damage & theft*)</div></div>
         </div>
       </section>
 
@@ -100,7 +49,6 @@ export default function Page() {
               <div
                 key={c.slug}
                 className="card"
-                style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
               >
                 <div>
                   <h3 style={{ margin: '0 0 6px' }}>{c.name}</h3>

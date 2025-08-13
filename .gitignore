@@ -83,3 +83,7 @@ web_modules/
 *.local
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Local assets/uploads
+public/uploads/
+public/tmp/
