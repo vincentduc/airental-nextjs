@@ -85,17 +85,36 @@ a:hover{text-decoration:underline}
 }
 /* WhatsApp CTA — keep same blue style as other primary buttons */
 .header .btn.whatsapp,
-.btn.whatsapp {
+.btn.whatsapp,
+.header .cta-whatsapp,
+.cta-whatsapp {
   background: var(--brand) !important;
   color: #fff !important;
   border: 0;
 }
+.header .btn.whatsapp:link,
+.header .btn.whatsapp:visited,
+.btn.whatsapp:link,
+.btn.whatsapp:visited,
+.header .cta-whatsapp:link,
+.header .cta-whatsapp:visited,
+.cta-whatsapp:link,
+.cta-whatsapp:visited,
+.btn.whatsapp *,
+.header .btn.whatsapp *,
+.cta-whatsapp *,
+.header .cta-whatsapp * {
+  color: #fff !important;
+}
 .header .btn.whatsapp:hover,
-.btn.whatsapp:hover {
+.btn.whatsapp:hover,
+.header .cta-whatsapp:hover,
+.cta-whatsapp:hover {
   background: var(--brand-ink) !important;
 }
 /* If the button contains an <a>, force the link to white as well */
-.btn.whatsapp a { color: #fff !important; }
+.btn.whatsapp a,
+.cta-whatsapp a { color: #fff !important; }
 .hero .actions{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
 
 /* ---------- Info card ---------- */
